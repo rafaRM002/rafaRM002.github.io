@@ -5,305 +5,207 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portafolio de Rafael Rodríguez</title>
   <style>
-    /* Variables para tema claro/oscuro */
-    :root {
-      --bg-color: #fefefe;
-      --text-color: #222;
-      --link-color: #007acc;
-      --header-bg: #fafafa;
-      --section-bg: #fff;
-      --border-color: #ddd;
-    }
-    [data-theme="dark"] {
-      --bg-color: #121212;
-      --text-color: #eee;
-      --link-color: #66aaff;
-      --header-bg: #1e1e1e;
-      --section-bg: #222;
-      --border-color: #444;
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      background: #f5f7fa;
+      color: #333;
       line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
     header {
-      background-color: var(--header-bg);
-      padding: 1rem 2rem;
       display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
       align-items: center;
-      border-bottom: 1px solid var(--border-color);
-    }
-    header img.flag {
-      width: 28px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 3px;
-      box-shadow: 0 0 2px rgba(0,0,0,0.15);
-      transition: transform 0.2s;
-    }
-    header img.flag:hover {
-      transform: scale(1.1);
+      gap: 20px;
+      margin-bottom: 40px;
+      border-bottom: 3px solid #4a90e2;
+      padding-bottom: 20px;
     }
 
-    header button#mode-toggle {
-      font-size: 1.4rem;
-      background: none;
-      border: none;
-      color: var(--text-color);
-      cursor: pointer;
-      padding: 0;
-      margin-left: 0.5rem;
-      transition: color 0.3s;
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #4a90e2;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    header div {
+      flex-grow: 1;
     }
 
-    h1, h2 {
+    header h1 {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    header h2 {
+      font-size: 1.2rem;
+      color: #4a90e2;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    }
+
+    section h3 {
+      margin-bottom: 15px;
+      border-bottom: 2px solid #4a90e2;
+      padding-bottom: 5px;
+      color: #4a90e2;
       font-weight: 700;
-      margin-bottom: 0.4rem;
     }
 
-    h1 {
-      font-size: 2.2rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 2rem;
-      border-bottom: 2px solid var(--link-color);
-      padding-bottom: 0.3rem;
-    }
-
-    p, li {
+    p, ul {
+      margin-bottom: 15px;
       font-size: 1rem;
-      color: var(--text-color);
     }
 
     ul {
-      padding-left: 1.2rem;
-      margin-top: 0.2rem;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+      margin-bottom: 8px;
+    }
+
+    ul li::before {
+      content: "•";
+      color: #4a90e2;
+      font-weight: bold;
+      display: inline-block;
+      width: 1.2em;
     }
 
     a {
-      color: var(--link-color);
+      color: #4a90e2;
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
 
+    .contact-links {
+      display: flex;
+      gap: 20px;
+      font-size: 1.1rem;
+    }
+
     .contact-links a {
-      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
     }
 
-    .photo-container {
-      margin: 1.5rem 0;
-      text-align: center;
-    }
-    .photo-container img {
-      max-width: 200px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    /* Hide English section by default */
-    #content-en {
-      display: none;
+    .contact-links a svg {
+      fill: #4a90e2;
+      width: 20px;
+      height: 20px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="https://flagcdn.com/es.svg" alt="Español" title="Español" id="lang-es" class="flag" />
-    <img src="https://flagcdn.com/gb.svg" alt="English" title="English" id="lang-en" class="flag" />
-    <button id="mode-toggle" title="Cambiar modo">🌙</button>
+    <img src="https://i.imgur.com/1XtGhef.png" alt="Foto de Rafael Rodríguez" />
+    <div>
+      <h1>Rafael Rodríguez</h1>
+      <h2>Desarrollador de Aplicaciones Web</h2>
+      <div class="contact-links">
+        <a href="tel:+34648873823" title="Llamar por teléfono">📞 +34 648 87 38 23</a>
+        <a href="mailto:rafaelrodriguezmengual@gmail.com" title="Enviar correo">✉️ rafaelrodriguezmengual@gmail.com</a>
+        <a href="https://github.com/rafaRM002" target="_blank" rel="noopener" title="Visitar GitHub">🐙 GitHub</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <!-- Español -->
-    <section id="content-es">
-      <h1>Rafael Rodríguez</h1>
-      <h2>DESARROLLADOR DE APLICACIONES WEB</h2>
+  <section>
+    <h3>Sobre mí</h3>
+    <p>Soy un entusiasta de la tecnología, siempre dispuesto a aprender y adaptarme a nuevos retos. Me mantengo actualizado con las últimas herramientas del sector y aplico buenas prácticas en cada desarrollo. Valoro el trabajo en equipo, la mejora continua y el enfoque en resultados sólidos.</p>
+  </section>
 
-      <p><strong>Sobre mí:</strong><br>
-      Soy un entusiasta de la tecnología, siempre dispuesto a aprender y adaptarme a nuevos retos. Me mantengo actualizado con las últimas herramientas del sector y aplico buenas prácticas en cada desarrollo. Valoro el trabajo en equipo, la mejora continua y el enfoque en resultados sólidos.</p>
+  <section>
+    <h3>Formación</h3>
+    <p>CFGS - Desarrollo de Aplicaciones Web <br />I.E.S Trassierra</p>
+  </section>
 
-      <div class="contact-links">
-        <strong>Contacto:</strong><br>
-        <a href="tel:+34648873823">+34 648 87 38 23</a> |
-        <a href="mailto:rafaelrodriguezmengual@gmail.com">rafaelrodriguezmengual@gmail.com</a> |
-        <a href="https://github.com/rafaRM002" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </div>
+  <section>
+    <h3>Experiencia</h3>
+    <h4>Desarrollador Full Stack</h4>
+    <p><em>WUL4 (Córdoba), marzo 2025 – junio 2025</em></p>
+    <ul>
+      <li>Desarrollé una API RESTful utilizando Spring Boot para gestionar solicitudes de clientes y procesamiento de datos.</li>
+      <li>Construí una aplicación web responsive con React y TailwindCSS para la interfaz de usuario.</li>
+      <li>Utilicé Git y GitHub para el control de versiones y el desarrollo colaborativo.</li>
+    </ul>
+  </section>
 
-      <h2>Formación</h2>
-      <p>CFGS - DESARROLLO DE APLICACIONES WEB<br>I.E.S Trassierra</p>
+  <section>
+    <h3>Conocimientos Técnicos</h3>
+    <ul>
+      <li><strong>Lenguajes de programación:</strong> Java, JavaScript, PHP, SQL</li>
+      <li><strong>Lenguajes de marcas y estilos:</strong> HTML5, CSS3, SASS, XML</li>
+      <li><strong>Frameworks y tecnologías:</strong> Angular, Laravel, Node.js, Spring Boot, React Native, Tailwind CSS, WordPress, AJAX</li>
+      <li><strong>Bases de datos:</strong> MySQL, MongoDB</li>
+      <li><strong>Control de versiones:</strong> Git, GitHub</li>
+      <li><strong>Otros conocimientos:</strong> Desarrollo de API, Diseño web, Informática general</li>
+    </ul>
+  </section>
 
-      <h2>Experiencia</h2>
-      <p><strong>DESARROLLADOR FULL STACK</strong><br>
-      WUL4 (CÓRDOBA), MARZO 2025 – JUNIO 2025</p>
-      <ul>
-        <li>Desarrollé una API RESTful utilizando Spring Boot para gestionar solicitudes de clientes y procesamiento de datos.</li>
-        <li>Construí una aplicación web responsive con React y TailwindCSS para la interfaz de usuario.</li>
-        <li>Utilicé Git y GitHub para el control de versiones y el desarrollo colaborativo.</li>
-      </ul>
+  <section>
+    <h3>Idiomas</h3>
+    <ul>
+      <li>Castellano │ Nativo</li>
+      <li>Inglés │ Avanzado (B2 – Aptis, MCER)</li>
+    </ul>
+  </section>
 
-      <h2>Conocimientos Técnicos</h2>
-      <ul>
-        <li><strong>Lenguajes de programación:</strong> Java, JavaScript, PHP, SQL</li>
-        <li><strong>Lenguajes de marcas y estilos:</strong> HTML5, CSS3, SASS, XML</li>
-        <li><strong>Frameworks y tecnologías:</strong> Angular, Laravel, Node.js, Spring Boot, React Native, Tailwind CSS, WordPress, AJAX</li>
-        <li><strong>Bases de datos:</strong> MySQL, MongoDB</li>
-        <li><strong>Control de versiones:</strong> Git, GitHub</li>
-        <li><strong>Otros conocimientos:</strong> Desarrollo de API, Diseño web, Informática general</li>
-      </ul>
+  <section>
+    <h3>Habilidades Personales</h3>
+    <ul>
+      <li>Buena comunicación y capacidad para transmitir ideas técnicas de forma clara</li>
+      <li>Pasión por el aprendizaje continuo y adaptación a nuevas tecnologías</li>
+      <li>Actitud colaborativa y facilidad para trabajar en equipo</li>
+      <li>Autocrítica constructiva orientada a la mejora constante</li>
+      <li>Proactivo, organizado y comprometido con los objetivos del grupo</li>
+    </ul>
+  </section>
 
-      <h2>Idiomas</h2>
-      <ul>
-        <li>Castellano │ Nativo</li>
-        <li>Inglés │ Avanzado (B2 – Aptis, MCER)</li>
-      </ul>
+  <section>
+    <h3>Información Adicional</h3>
+    <p>Carné de conducir: Tipo B (válido hasta 15/02/2031)</p>
+  </section>
 
-      <h2>Habilidades personales</h2>
-      <ul>
-        <li>Buena comunicación y capacidad para transmitir ideas técnicas de forma clara</li>
-        <li>Pasión por el aprendizaje continuo y adaptación a nuevas tecnologías</li>
-        <li>Actitud colaborativa y facilidad para trabajar en equipo</li>
-        <li>Autocrítica constructiva orientada a la mejora constante</li>
-        <li>Proactivo, organizado y comprometido con los objetivos del grupo</li>
-      </ul>
+  <section>
+    <h3>Proyectos</h3>
+    <ul>
+      <li><a href="https://github.com/rafaRM002/bandcoord-frontend" target="_blank" rel="noopener">BandCoord - Frontend</a>: Plataforma para la gestión y coordinación de bandas musicales.</li>
+      <li><a href="https://github.com/rafaRM002/bandcoord-backend" target="_blank" rel="noopener">BandCoord - Backend</a>: Backend desarrollado en Laravel para BandCoord.</li>
+      <li><a href="https://github.com/SantanaDV/proyecto-frontend-gestor-inventario/tree/main/proyecto-fontend" target="_blank" rel="noopener">Gestor Inventario - Frontend Web</a>: Colaboración en frontend web con React para app de inventarios.</li>
+      <li><a href="https://github.com/SantanaDV/Gestor-inventario-backend" target="_blank" rel="noopener">Gestor Inventario - Backend</a>: Colaboración en backend con Java y Spring Boot para API REST de inventarios.</li>
+    </ul>
+  </section>
 
-      <h2>Información adicional</h2>
-      <p>Carné de conducir: Tipo B (válido hasta 15/02/2031)</p>
-
-      <h2>Proyectos</h2>
-      <ul>
-        <li><strong>BandCoord:</strong> Proyecto personal para coordinar bandas musicales.</li>
-        <li><strong>Gestor de Inventario para QualicaRD:</strong> Proyecto desarrollado durante prácticas aplicando Spring Boot y React.</li>
-      </ul>
-
-      <div class="photo-container">
-        <img src="https://i.imgur.com/1XtGhef.png" alt="Foto de Rafael Rodríguez" />
-      </div>
-    </section>
-
-    <!-- English -->
-    <section id="content-en">
-      <h1>Rafael Rodríguez</h1>
-      <h2>WEB APPLICATION DEVELOPER</h2>
-
-      <p><strong>About me:</strong><br>
-      I am a technology enthusiast, always willing to learn and adapt to new challenges. I keep myself updated with the latest tools in the industry and apply best practices in every development. I value teamwork, continuous improvement, and focusing on solid results.</p>
-
-      <div class="contact-links">
-        <strong>Contact:</strong><br>
-        <a href="tel:+34648873823">+34 648 87 38 23</a> |
-        <a href="mailto:rafaelrodriguezmengual@gmail.com">rafaelrodriguezmengual@gmail.com</a> |
-        <a href="https://github.com/rafaRM002" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </div>
-
-      <h2>Education</h2>
-      <p>CFGS - WEB APPLICATION DEVELOPMENT<br>I.E.S Trassierra</p>
-
-      <h2>Experience</h2>
-      <p><strong>FULL STACK DEVELOPER</strong><br>
-      WUL4 (CÓRDOBA), MARCH 2025 – JUNE 2025</p>
-      <ul>
-        <li>Developed a RESTful API using Spring Boot to manage client requests and data processing.</li>
-        <li>Built a responsive web application using React and TailwindCSS for the user interface.</li>
-        <li>Used Git and GitHub for version control and collaborative development.</li>
-      </ul>
-
-      <h2>Technical Skills</h2>
-      <ul>
-        <li><strong>Programming languages:</strong> Java, JavaScript, PHP, SQL</li>
-        <li><strong>Markup and style languages:</strong> HTML5, CSS3, SASS, XML</li>
-        <li><strong>Frameworks and technologies:</strong> Angular, Laravel, Node.js, Spring Boot, React Native, Tailwind CSS, WordPress, AJAX</li>
-        <li><strong>Databases:</strong> MySQL, MongoDB</li>
-        <li><strong>Version control:</strong> Git, GitHub</li>
-        <li><strong>Other knowledge:</strong> API development, Web design, General computing</li>
-      </ul>
-
-      <h2>Languages</h2>
-      <ul>
-        <li>Spanish │ Native</li>
-        <li>English │ Advanced (B2 – Aptis, CEFR)</li>
-      </ul>
-
-      <h2>Personal Skills</h2>
-      <ul>
-        <li>Good communication skills and ability to clearly convey technical ideas</li>
-        <li>Passion for continuous learning and adapting to new technologies</li>
-        <li>Collaborative attitude and ease to work in teams</li>
-        <li>Constructive self-criticism aimed at continuous improvement</li>
-        <li>Proactive, organized, and committed to group goals</li>
-      </ul>
-
-      <h2>Additional Information</h2>
-      <p>Driver’s license: Type B (valid until 15/02/2031)</p>
-
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>BandCoord:</strong> Personal project to coordinate musical bands.</li>
-        <li><strong>Inventory Manager for QualicaRD:</strong> Project developed during internship applying Spring Boot and React.</li>
-      </ul>
-
-      <div class="photo-container">
-        <img src="https://i.imgur.com/1XtGhef.png" alt="Photo of Rafael Rodríguez" />
-      </div>
-    </section>
-  </main>
-
-  <script>
-    // Cambiar idioma
-    const langEs = document.getElementById('lang-es');
-    const langEn = document.getElementById('lang-en');
-    const contentEs = document.getElementById('content-es');
-    const contentEn = document.getElementById('content-en');
-
-    langEs.addEventListener('click', () => {
-      contentEs.style.display = 'block';
-      contentEn.style.display = 'none';
-    });
-
-    langEn.addEventListener('click', () => {
-      contentEs.style.display = 'none';
-      contentEn.style.display = 'block';
-    });
-
-    // Modo claro/oscuro con persistencia
-    const modeToggle = document.getElementById('mode-toggle');
-    const body = document.body;
-
-    function setMode(mode) {
-      if(mode === 'dark') {
-        body.setAttribute('data-theme', 'dark');
-        modeToggle.textContent = '☀️';
-      } else {
-        body.removeAttribute('data-theme');
-        modeToggle.textContent = '🌙';
-      }
-      localStorage.setItem('theme', mode);
-    }
-
-    const savedMode = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    setMode(savedMode);
-
-    modeToggle.addEventListener('click', () => {
-      const currentMode = body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-      setMode(currentMode === 'dark' ? 'light' : 'dark');
-    });
-  </script>
 </body>
 </html>
