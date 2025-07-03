@@ -3,117 +3,292 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BandCoord – Gestión de Bandas de Semana Santa</title>
+  <title>Proyecto BandCoord - Rafael Rodríguez</title>
   <style>
+    /* Copio el mismo CSS del index.html para mantener el estilo */
+
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 700px;
-      margin: auto;
-      padding: 40px 20px;
       background: #f5f7fa;
       color: #333;
       line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
     }
-    h1 {
-      color: #4a90e2;
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 15px 20px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      border-radius: 8px;
       margin-bottom: 30px;
-      font-size: 2.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    h2 {
-      color: #333;
-      margin-top: 25px;
+    nav .nav-links a {
+      margin-right: 20px;
+      font-weight: 600;
+      color: #4a90e2;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav .nav-links a:hover {
+      text-decoration: underline;
+      color: #3567c2;
+    }
+    nav .nav-contact-btn {
+      background-color: #4a90e2;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease;
+    }
+    nav .nav-contact-btn:hover {
+      background-color: #3a78cc;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      border-bottom: 3px solid #4a90e2;
+      padding-bottom: 20px;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #4a90e2;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+
+    header div {
+      flex-grow: 1;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    header h2 {
+      font-size: 1.2rem;
+      color: #4a90e2;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    /* SECCIONES */
+    section {
+      margin-bottom: 40px;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    }
+
+    section h3 {
       margin-bottom: 15px;
+      border-bottom: 2px solid #4a90e2;
+      padding-bottom: 5px;
+      color: #4a90e2;
+      font-weight: 700;
       font-size: 1.5rem;
     }
-    p {
-      font-size: 1.1rem;
+
+    section h4 {
+      margin-bottom: 10px;
+      color: #222;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    p, ul {
       margin-bottom: 15px;
+      font-size: 1rem;
+      color: #444;
     }
+
     ul {
-      margin-bottom: 20px;
-      padding-left: 20px;
+      list-style: none;
+      padding-left: 0;
     }
-    li {
+
+    ul li {
+      padding-left: 1.2em;
+      text-indent: -1.2em;
       margin-bottom: 8px;
-      font-size: 1.05rem;
+      color: #555;
     }
-    a.back-link {
+
+    ul li::before {
+      content: "•";
+      color: #4a90e2;
+      font-weight: bold;
       display: inline-block;
-      margin-top: 40px;
+      width: 1.2em;
+    }
+
+    a {
       color: #4a90e2;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
+      transition: color 0.3s ease;
     }
-    a.back-link:hover {
+
+    a:hover {
       text-decoration: underline;
+      color: #3567c2;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      header img {
+        margin-bottom: 15px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+      }
+      nav .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      nav .nav-contact-btn {
+        align-self: center;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>BandCoord – Gestión Integral para Bandas de Semana Santa</h1>
 
-  <h2>Introducción</h2>
-  <p>
-    BandCoord es una aplicación web diseñada para gestionar y coordinar de forma completa y detallada las actividades internas de las bandas de música, con especial atención a las que participan en celebraciones de Semana Santa. 
-  </p>
-  <p>
-    Esta plataforma permite a los administradores organizar ensayos, actuaciones y mantener una comunicación fluida con los miembros. Los usuarios pueden gestionar la disponibilidad de músicos, instrumentos, secciones y coordinar ensayos generales y por secciones. Además, BandCoord incluye un calendario interactivo para registrar eventos y un sistema de mensajería interna para notificaciones.
-  </p>
-  <p>
-    También ofrece un espacio para almacenar y consultar partituras, grabaciones y archivos multimedia relacionados con el repertorio, facilitando así la planificación y organización de la banda.
-  </p>
+<nav>
+  <div class="nav-links">
+    <a href="#introduccion">Introducción</a>
+    <a href="#objetivos">Objetivos y Requisitos</a>
+    <a href="#seguridad">Seguridad</a>
+    <a href="#consecucion">Consecucción de Objetivos</a>
+  </div>
+  <a href="mailto:rafaelrodriguezmengual@gmail.com" class="nav-contact-btn">Contáctame</a>
+</nav>
 
-  <h2>Resumen Ejecutivo</h2>
-  <p>
-    Desarrollada con Laravel en el backend, React en el frontend y TailwindCSS para el diseño, BandCoord presenta un enfoque modular y escalable, ideal para adaptarse a futuras necesidades. Está dirigida tanto a directores como a miembros, promoviendo una gestión eficiente mediante funcionalidades específicas como calendario de eventos, asignación de partituras y control de asistencia.
-  </p>
+<header id="introduccion">
+  <img src="https://i.imgur.com/1XtGhef.png" alt="Foto de Rafael Rodríguez" />
+  <div>
+    <h1>BandCoord</h1>
+    <h2>Proyecto de Gestión para Bandas de Música</h2>
+    <p>Aplicación web desarrollada con Laravel (backend), React (frontend) y TailwindCSS (UI) para la organización integral de bandas de música, con especial foco en bandas de Semana Santa.</p>
+  </div>
+</header>
 
-  <h2>Objetivos</h2>
+<section id="introduccion">
+  <h3>Introducción</h3>
+  <p>La importancia de este proyecto denominado BandCoord consiste en llevar un control completo y detallado de la gestión interna de las bandas de música, especialmente aquellas que participan en celebraciones de Semana Santa.</p>
+  <p>Esta aplicación web permite a los administradores organizar de manera eficiente los ensayos, actuaciones y la comunicación con los miembros de la banda.</p>
+  <p>Los usuarios podrán gestionar información clave como la disponibilidad de los músicos, los instrumentos que interpretan, las secciones a las que pertenecen, y coordinar tanto ensayos generales como por secciones específicas.</p>
+  <p>Además, BandCoord cuenta con un calendario interactivo donde se pueden registrar fechas relevantes, conciertos y actividades.</p>
+  <p>También incluye un sistema de mensajería para mantener informados a los miembros sobre cualquier novedad, así como un espacio para almacenar y consultar partituras, grabaciones y archivos multimedia relacionados con el repertorio de la banda.</p>
+  <p>En resumen, BandCoord es una herramienta pensada para facilitar la planificación, la organización y la comunicación dentro de una banda de Semana Santa.</p>
+</section>
+
+<section id="objetivos">
+  <h3>Objetivos y Requisitos</h3>
+  <h4>Objetivos</h4>
   <ul>
-    <li>Gestionar la organización interna de las bandas de música, especialmente las de Semana Santa.</li>
-    <li>Contar con un calendario para programar ensayos, actuaciones y eventos relevantes.</li>
-    <li>Administrar la información de los miembros: instrumentos, disponibilidad y participación.</li>
-    <li>Facilitar la comunicación entre administradores y músicos mediante envío de correos a grupos específicos.</li>
-    <li>Disponer de un espacio para almacenar y consultar partituras, grabaciones y documentos multimedia.</li>
-    <li>Registrar y seguir detalladamente los ensayos generales y por secciones.</li>
-    <li>Mostrar información clara y accesible sobre las actuaciones programadas.</li>
+    <li>Gestionar la organización interna de las bandas de música, especialmente las bandas de Semana Santa.</li>
+    <li>Disponibilizar un calendario para programar ensayos, actuaciones y eventos importantes.</li>
+    <li>Ofrecer un sistema de gestión de miembros, incluyendo información como instrumento, disponibilidad y participación.</li>
+    <li>Facilitar la comunicación entre administradores y miembros mediante el envío de correos electrónicos a grupos específicos.</li>
+    <li>Incluir un espacio para almacenar y consultar partituras, grabaciones y documentos multimedia relacionados con el repertorio musical.</li>
+    <li>Permitir el seguimiento detallado de los ensayos, ya sean generales o por secciones.</li>
+    <li>Mostrar información clara sobre las actuaciones programadas con sus respectivos detalles.</li>
   </ul>
 
-  <h2>Requisitos del Cliente</h2>
+  <h4>Requisitos</h4>
   <ul>
-    <li>Sistema de autenticación seguro con usuario y contraseña.</li>
-    <li>Menú principal para navegar entre las diferentes secciones de la plataforma.</li>
-    <li>Gestión completa de miembros con datos personales, instrumentos y disponibilidad.</li>
-    <li>Programación y visualización de ensayos, tanto generales como por secciones.</li>
-    <li>Calendario interactivo con fechas importantes: ensayos, actuaciones y eventos.</li>
-    <li>Sistema de mensajería para comunicación interna.</li>
+    <li>Sistema de autenticación mediante usuario y contraseña para acceder a la aplicación.</li>
+    <li>Un menú principal que permite navegar entre los distintos apartados de la plataforma.</li>
+    <li>Gestión de miembros de la banda, con información personal, instrumentos y disponibilidad.</li>
+    <li>Posibilidad de programar y visualizar ensayos tanto generales como por secciones.</li>
+    <li>Inclusión de un calendario interactivo con fechas relevantes como ensayos, actuaciones, etc.</li>
+    <li>Sistema de mensajería para facilitar la comunicación interna.</li>
     <li>Sección de composiciones con acceso a partituras, grabaciones y material multimedia.</li>
-    <li>Visualización y gestión de actuaciones con detalles como fecha, hora y lugar.</li>
+    <li>Visualización y gestión de las actuaciones programadas con detalles como fecha, hora y lugar.</li>
   </ul>
+</section>
 
-  <h2>Seguridad</h2>
-  <p>
-    La seguridad es un pilar fundamental en BandCoord, especialmente al manejar datos personales y contenido multimedia sensible. Se implementó un sistema de autenticación mediante Laravel Sanctum, basado en tokens para SPA, asegurando que las contraseñas están cifradas y nunca se almacenan en texto plano.
-  </p>
-  <p>
-    Para el control del código fuente se utilizó Git, garantizando un historial completo de cambios, copias de seguridad automáticas, y una gestión eficiente del trabajo en equipo, minimizando riesgos y facilitando el mantenimiento.
-  </p>
+<section id="seguridad">
+  <h3>Seguridad</h3>
+  <p>La seguridad es uno de los aspectos más importantes tanto para los administradores como para los usuarios de aplicaciones web, especialmente cuando se manejan datos sensibles como información personal, disponibilidad y contenido multimedia privado.</p>
+  <p>En BandCoord, se han implementado diversas medidas para garantizar un entorno seguro, confiable y protegido:</p>
 
-  <h2>Resultados y Cumplimiento de Objetivos</h2>
+  <h4>Autenticación</h4>
+  <p>El acceso a la aplicación se realiza mediante un sistema de autenticación que requiere una identidad única (correo electrónico o nombre de usuario) y una contraseña que solo conoce el usuario.</p>
+  <p>Se ha utilizado Laravel Sanctum, un sistema de autenticación API basado en tokens, que proporciona una solución sencilla y segura para aplicaciones SPA (Single Page Application) como BandCoord.</p>
+  <p>Además, las contraseñas son hasheadas (cifradas) utilizando el sistema de encriptación incorporado en Laravel, garantizando que nunca se almacenan en texto plano.</p>
+
+  <h4>Control de versiones</h4>
+  <p>Para el control y gestión del código fuente se utiliza Git, un sistema de control de versiones distribuido. Gracias a Git, todo el historial de cambios del proyecto queda registrado en un repositorio, lo que proporciona:</p>
   <ul>
-    <li><strong>Gestión de miembros:</strong> Registro, edición y visualización de músicos con sus datos e instrumentos.</li>
-    <li><strong>Calendario:</strong> Visualización de ensayos y actuaciones con todos sus detalles.</li>
-    <li><strong>Comunicación interna:</strong> Envío de mensajes a miembros o secciones específicas.</li>
-    <li><strong>Gestión de composiciones:</strong> Subida y consulta de partituras y grabaciones.</li>
-    <li><strong>Autenticación segura:</strong> Implementada con Laravel Sanctum y control de acceso robusto.</li>
-    <li><strong>Interfaz intuitiva:</strong> Frontend dinámico y atractivo con React y TailwindCSS.</li>
-    <li><strong>Despliegue y accesibilidad:</strong> Aplicación accesible desde navegadores web y desplegada correctamente.</li>
+    <li>Copias de seguridad automáticas en cada commit.</li>
+    <li>Posibilidad de revertir cambios en caso de errores.</li>
+    <li>Mejora del trabajo colaborativo y seguimiento del progreso.</li>
+    <li>Mayor seguridad ante pérdidas de información o problemas técnicos.</li>
   </ul>
-  <p>
-    Todos los requisitos planteados por el cliente fueron satisfechos, logrando una plataforma funcional, segura y eficiente para la gestión integral de bandas de Semana Santa.
-  </p>
+  <p>El repositorio permite mantener un registro exacto de cada modificación realizada en el proyecto, esencial tanto en el desarrollo como en el mantenimiento de la aplicación.</p>
+</section>
 
-  <a href="../../index.html" class="back-link">← Volver al Portafolio</a>
+<section id="consecucion">
+  <h3>Consecuación de los Objetivos</h3>
+  <p>El objetivo principal del proyecto BandCoord era proporcionar una herramienta integral para la gestión y coordinación de bandas de música, especialmente aquellas que participan en Semana Santa. Este objetivo se ha cumplido con éxito, permitiendo una gestión eficiente de ensayos, actuaciones, miembros y comunicación interna.</p>
+
+  <h4>Resumen de objetivos cumplidos</h4>
+  <ul>
+    <li><strong>Gestión de miembros de la banda:</strong> Se pueden registrar, editar y visualizar miembros con datos como instrumento y disponibilidad.</li>
+    <li><strong>Calendario de ensayos y actuaciones:</strong> La aplicación permite ver un calendario con fechas, horas y detalles de los eventos.</li>
+    <li><strong>Sistema de comunicación interna (email):</strong> Se pueden enviar mensajes a miembros o grupos específicos directamente desde la plataforma.</li>
+    <li><strong>Gestión de repertorio:</strong> Partituras, grabaciones y documentos multimedia se almacenan y pueden ser consultados fácilmente.</li>
+    <li><strong>Autenticación segura:</strong> Los usuarios acceden mediante login protegido con Laravel Sanctum y contraseñas cifradas.</li>
+    <li><strong>Control de versiones:</strong> Todo el código fuente está bajo Git, asegurando un desarrollo controlado y seguro.</li>
+  </ul>
+
+  <p>En definitiva, BandCoord ha cumplido con sus objetivos iniciales y se presenta como una solución tecnológica adaptada a las necesidades específicas de las bandas de música de Semana Santa, facilitando la organización y comunicación dentro del grupo.</p>
+</section>
+
 </body>
 </html>
