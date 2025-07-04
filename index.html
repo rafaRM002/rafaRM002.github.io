@@ -197,35 +197,87 @@
       margin-top: 10px;
     }
 
-    /* Centrar el enlace “View All Projects” */
     #projects p[style] {
       margin-top: 30px;
       font-weight: 600;
       text-align: center;
     }
 
-    /* Responsive */
+    /* Responsive mejorado */
+    @media (max-width: 900px) {
+      body {
+        padding: 10px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header h2 {
+        font-size: 1rem;
+      }
+
+      section h3 {
+        font-size: 1.3rem;
+      }
+
+      section h4 {
+        font-size: 1.1rem;
+      }
+
+      p, ul li {
+        font-size: 0.95rem;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         text-align: center;
       }
+
       header img {
         margin-bottom: 15px;
       }
+
       nav {
         flex-direction: column;
         gap: 10px;
         padding: 10px 20px;
       }
+
       nav .nav-links {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 10px;
       }
+
       nav .nav-contact-btn {
         align-self: center;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.95rem;
+      }
+
+      section {
+        padding: 15px;
+      }
+
+      section ul {
+        padding-left: 15px;
+      }
+
+      #projects div {
+        padding: 10px 0;
       }
     }
   </style>
