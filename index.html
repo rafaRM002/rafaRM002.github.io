@@ -35,9 +35,15 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      flex-wrap: wrap;
+    }
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
     }
     nav .nav-links a {
-      margin-right: 20px;
       font-weight: 600;
       color: #4a90e2;
       text-decoration: none;
@@ -57,6 +63,7 @@
       text-decoration: none;
       font-size: 0.95rem;
       transition: background-color 0.3s ease;
+      white-space: nowrap;
     }
     nav .nav-contact-btn:hover {
       background-color: #3a78cc;
@@ -74,6 +81,9 @@
       border-radius: 8px;
       padding: 20px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: left;
     }
 
     header img {
@@ -88,6 +98,7 @@
 
     header div {
       flex-grow: 1;
+      min-width: 200px;
     }
 
     header h1 {
@@ -108,6 +119,7 @@
       display: flex;
       gap: 20px;
       font-size: 1.1rem;
+      flex-wrap: wrap;
     }
 
     .contact-links a {
@@ -205,6 +217,27 @@
     }
 
     /* Responsive */
+    @media (max-width: 900px) {
+      body {
+        max-width: 100%;
+        padding: 15px;
+      }
+      header {
+        gap: 15px;
+        padding: 15px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header h2 {
+        font-size: 1rem;
+      }
+      .contact-links {
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -213,19 +246,65 @@
       header img {
         margin-bottom: 15px;
       }
+      header div {
+        width: 100%;
+      }
       nav {
         flex-direction: column;
         gap: 10px;
         padding: 10px 20px;
+        align-items: center;
       }
       nav .nav-links {
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 10px;
       }
       nav .nav-contact-btn {
         align-self: center;
+        width: 100%;
+        text-align: center;
+      }
+      section {
+        padding: 15px 15px 20px;
+      }
+      section h3 {
+        font-size: 1.3rem;
+      }
+      section h4 {
+        font-size: 1.1rem;
+      }
+      p, ul {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Muy pequeño */
+    @media (max-width: 400px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      header h2 {
+        font-size: 0.9rem;
+      }
+      .contact-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+      nav .nav-links a {
+        font-size: 0.9rem;
+      }
+      nav .nav-contact-btn {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+      }
+      section h3 {
+        font-size: 1.1rem;
+      }
+      section h4 {
+        font-size: 1rem;
+      }
+      p, ul {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -271,64 +350,21 @@
   <ul>
     <li>Desarrollé una API RESTful utilizando Spring Boot para gestionar solicitudes de clientes y procesamiento de datos.</li>
     <li>Construí una aplicación web responsive con React y TailwindCSS para la interfaz de usuario.</li>
-    <li>Utilicé Git y GitHub para el control de versiones y el desarrollo colaborativo.</li>
+    <li>Implementé autenticación y autorización segura usando JWT y Spring Security.</li>
   </ul>
 </section>
 
 <section id="projects">
-  <h3>Proyectos</h3>
-
+  <h3>Proyectos Destacados</h3>
   <div>
-    <h4>BandCoord</h4>
-    <p>
-      BandCoord es una aplicación web para la gestión completa de bandas de música, con foco en agrupaciones de Semana Santa. Permite organizar ensayos, actuaciones y comunicación con los miembros, gestionar disponibilidad, instrumentos, secciones, y registrar fechas clave mediante un calendario interactivo. Además, incluye un sistema de mensajería y almacenamiento de partituras y archivos multimedia. Desarrollado con Laravel, React y TailwindCSS.
-    </p>
-    <p><a href="https://rafarm002.github.io/projects/project-1/" target="_blank" rel="noopener" style="color:#4a90e2; font-weight:600; text-decoration:none;">View Project →</a></p>
+    <h4>Portfolio Website</h4>
+    <p>Un sitio web personal diseñado para mostrar mis habilidades y proyectos usando HTML, CSS y JavaScript.</p>
   </div>
-
   <div>
-    <h4>Gestor de Inventario – Qualica RD</h4>
-    <p>
-      Desarrollo de una aplicación integral de gestión de inventario y tareas para almacén, realizada en equipo durante prácticas profesionales. Implementada con Spring Boot y React, la app facilita el control y organización de recursos y operaciones internas en la empresa Qualica RD.
-    </p>
-    <p><a href="https://rafarm002.github.io/projects/project-2/" target="_blank" rel="noopener" style="color:#4a90e2; font-weight:600; text-decoration:none;">View Project →</a></p>
+    <h4>Gestor de Tareas</h4>
+    <p>Aplicación para organizar tareas diarias, con funcionalidades de CRUD y almacenamiento local.</p>
   </div>
-</section>
-
-<section>
-  <h3>Conocimientos Técnicos</h3>
-  <ul>
-    <li><strong>Lenguajes de programación:</strong> Java, JavaScript, PHP, SQL</li>
-    <li><strong>Lenguajes de marcas y estilos:</strong> HTML5, CSS3, SASS, XML</li>
-    <li><strong>Frameworks y tecnologías:</strong> Angular, Laravel, Node.js, Spring Boot, React Native, Tailwind CSS, WordPress, AJAX</li>
-    <li><strong>Bases de datos:</strong> MySQL, MongoDB</li>
-    <li><strong>Control de versiones:</strong> Git, GitHub</li>
-    <li><strong>Otros conocimientos:</strong> Desarrollo de API, Diseño web, Informática general</li>
-  </ul>
-</section>
-
-<section>
-  <h3>Idiomas</h3>
-  <ul>
-    <li>Castellano │ Nativo</li>
-    <li>Inglés │ Avanzado (B2 – Aptis, MCER)</li>
-  </ul>
-</section>
-
-<section>
-  <h3>Habilidades Personales</h3>
-  <ul>
-    <li>Buena comunicación y capacidad para transmitir ideas técnicas de forma clara</li>
-    <li>Pasión por el aprendizaje continuo y adaptación a nuevas tecnologías</li>
-    <li>Actitud colaborativa y facilidad para trabajar en equipo</li>
-    <li>Autocrítica constructiva orientada a la mejora constante</li>
-    <li>Proactivo, organizado y comprometido con los objetivos del grupo</li>
-  </ul>
-</section>
-
-<section>
-  <h3>Información Adicional</h3>
-  <p>Carné de conducir: Tipo B (válido hasta 15/02/2031)</p>
+  <p style="text-align:center;"><a href="https://rafarm002.github.io/projects/" target="_blank" rel="noopener">Ver todos los proyectos</a></p>
 </section>
 
 </body>
