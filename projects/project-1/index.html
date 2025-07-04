@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proyecto BandCoord - Rafael Rodríguez</title>
   <style>
-    /* Copio el mismo CSS del index.html para mantener el estilo */
-
     /* Reset básico */
     * {
       margin: 0;
@@ -22,9 +20,9 @@
       padding: 20px;
       max-width: 900px;
       margin: auto;
+      transition: background 0.3s, color 0.3s;
     }
 
-    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
@@ -37,19 +35,29 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      flex-wrap: wrap;
+      gap: 10px;
     }
+
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
     nav .nav-links a {
-      margin-right: 20px;
       font-weight: 600;
       color: #4a90e2;
       text-decoration: none;
       font-size: 1rem;
       transition: color 0.3s ease;
     }
+
     nav .nav-links a:hover {
       text-decoration: underline;
       color: #3567c2;
     }
+
     nav .nav-contact-btn {
       background-color: #4a90e2;
       color: white;
@@ -60,11 +68,30 @@
       font-size: 0.95rem;
       transition: background-color 0.3s ease;
     }
+
     nav .nav-contact-btn:hover {
       background-color: #3a78cc;
     }
 
-    /* HEADER */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    .lang-switcher img {
+      cursor: pointer;
+      width: 24px;
+      height: 16px;
+    }
+
     header {
       display: flex;
       align-items: center;
@@ -83,7 +110,6 @@
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #4a90e2;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       flex-shrink: 0;
     }
@@ -106,7 +132,6 @@
       margin-bottom: 10px;
     }
 
-    /* SECCIONES */
     section {
       margin-bottom: 40px;
       background: white;
@@ -169,7 +194,6 @@
       color: #3567c2;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -180,18 +204,42 @@
       }
       nav {
         flex-direction: column;
-        gap: 10px;
-        padding: 10px 20px;
+        align-items: flex-start;
       }
-      nav .nav-links {
-        display: flex;
-        flex-wrap: wrap;
+      .nav-actions {
         justify-content: center;
-        gap: 15px;
+        flex-wrap: wrap;
+        width: 100%;
       }
-      nav .nav-contact-btn {
-        align-self: center;
-      }
+    }
+
+    /* Tema oscuro */
+    body.dark {
+      background: #1e1e1e;
+      color: #f1f1f1;
+    }
+
+    body.dark section,
+    body.dark header,
+    body.dark nav {
+      background: #2a2a2a;
+      box-shadow: none;
+    }
+
+    body.dark a {
+      color: #81c4ff;
+    }
+
+    body.dark nav .nav-contact-btn {
+      background-color: #3a78cc;
+    }
+
+    body.dark nav .nav-contact-btn:hover {
+      background-color: #619dff;
+    }
+
+    body.dark ul li::before {
+      color: #81c4ff;
     }
   </style>
 </head>
@@ -204,11 +252,18 @@
     <a href="#seguridad">Seguridad</a>
     <a href="#consecucion">Consecucción de Objetivos</a>
   </div>
-  <a href="mailto:rafaelrodriguezmengual@gmail.com" class="nav-contact-btn">Contáctame</a>
+  <div class="nav-actions">
+    <a href="mailto:rafaelrodriguezmengual@gmail.com" class="nav-contact-btn">Contáctame</a>
+    <button id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+    <div class="lang-switcher">
+      <img src="https://flagcdn.com/es.svg" alt="Español" onclick="setLanguage('es')">
+      <img src="https://flagcdn.com/gb.svg" alt="English" onclick="setLanguage('en')">
+    </div>
+  </div>
 </nav>
 
 <header id="introduccion">
- <img src="https://i.imgur.com/s1oiGuX.png" alt="BandCoord" />
+  <img src="https://i.imgur.com/s1oiGuX.png" alt="BandCoord" />
   <div>
     <h1>BandCoord</h1>
     <h2>Proyecto de Gestión para Bandas de Música</h2>
@@ -270,7 +325,6 @@
     <li>Mejora del trabajo colaborativo y seguimiento del progreso.</li>
     <li>Mayor seguridad ante pérdidas de información o problemas técnicos.</li>
   </ul>
-  <p>El repositorio permite mantener un registro exacto de cada modificación realizada en el proyecto, esencial tanto en el desarrollo como en el mantenimiento de la aplicación.</p>
 </section>
 
 <section id="consecucion">
@@ -290,6 +344,29 @@
   <p>En definitiva, BandCoord ha cumplido con sus objetivos iniciales y se presenta como una solución tecnológica adaptada a las necesidades específicas de las bandas de música de Semana Santa, facilitando la organización y comunicación dentro del grupo.</p>
 </section>
 
-  <a href="../../index.html" class="back-link">← Volver al Portafolio</a>
+<a href="../../index.html" class="back-link">← Volver al Portafolio</a>
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    document.body.classList.add('dark');
+    toggleBtn.textContent = '☀️';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    toggleBtn.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  function setLanguage(lang) {
+    alert('El cambio de idioma aún no está implementado. Idioma seleccionado: ' + lang);
+  }
+</script>
+
 </body>
 </html>
