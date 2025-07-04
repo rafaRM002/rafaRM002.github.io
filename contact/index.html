@@ -15,48 +15,82 @@
     }
     h1 {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       color: #4a90e2;
       font-weight: 700;
+      font-size: 2.8rem;
     }
-    p {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin-bottom: 25px;
+    p.intro {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #555;
+      text-align: center;
     }
     .contact-info {
       background: white;
-      padding: 25px;
+      padding: 30px 35px;
       border-radius: 8px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.05);
       font-size: 1rem;
+      color: #444;
+    }
+    .contact-info p {
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .contact-info strong {
+      color: #4a90e2;
+      font-weight: 700;
+      width: 140px;
+      display: inline-block;
     }
     .contact-info a {
       color: #4a90e2;
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.3s ease;
     }
     .contact-info a:hover {
+      color: #3567c2;
       text-decoration: underline;
     }
-    .contact-info p {
-      margin-bottom: 15px;
+    @media (max-width: 480px) {
+      body {
+        padding: 30px 15px;
+      }
+      .contact-info {
+        padding: 25px 20px;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      .contact-info strong {
+        width: 100px;
+      }
     }
   </style>
 </head>
 <body>
 
-<h1>Ponte en contacto</h1>
+  <h1>Contacto</h1>
 
-<p>Gracias por visitar mi portafolio. Si tienes alguna consulta, propuesta de colaboración o simplemente quieres saludar, no dudes en contactarme a través de los siguientes medios:</p>
-
-<div class="contact-info">
-  <p><strong>Correo electrónico:</strong> <a href="mailto:rafaelrodriguezmengual@gmail.com">rafaelrodriguezmengual@gmail.com</a></p>
-  <p><strong>Redes sociales:</strong> 
-    <a href="https://github.com/rafaRM002" target="_blank" rel="noopener">GitHub</a> | 
-    <a href="www.linkedin.com/in/rafael-rodríguez-mengual2002" target="_blank" rel="noopener">LinkedIn</a>
+  <p class="intro">
+    Gracias por visitar mi portafolio profesional. Estoy siempre abierto a nuevas oportunidades, colaboraciones y proyectos interesantes.  
+    Si tienes alguna consulta o deseas establecer contacto, no dudes en comunicarte conmigo mediante los siguientes canales oficiales:
   </p>
-</div>
+
+  <div class="contact-info">
+    <p><strong>Correo electrónico:</strong> 
+      <a href="mailto:rafaelrodriguezmengual@gmail.com" aria-label="Enviar correo a Rafael Rodríguez">
+        rafaelrodriguezmengual@gmail.com
+      </a>
+    </p>
+    <p><strong>Redes sociales:</strong> 
+      <a href="https://github.com/rafaRM002" target="_blank" rel="noopener" aria-label="Visitar GitHub de Rafael Rodríguez">GitHub</a> &nbsp;|&nbsp; 
+      <a href="https://www.linkedin.com/in/rafael-rodríguez-mengual2002" target="_blank" rel="noopener" aria-label="Visitar LinkedIn de Rafael Rodríguez">LinkedIn</a>
+    </p>
+  </div>
 
 </body>
 </html>
