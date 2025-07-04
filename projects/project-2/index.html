@@ -7,46 +7,10 @@
   <style>
     :root {
       --primary: #4a90e2;
-      --background-light: #f5f7fa;
-      --background-dark: #1f1f1f;
-      --text-light: #333;
-      --text-dark: #f5f5f5;
-      --card-light: #fff;
-      --card-dark: #2a2a2a;
-      --shadow-light: rgba(0, 0, 0, 0.05);
-      --shadow-dark: rgba(0, 0, 0, 0.3);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: var(--background-dark);
-        color: var(--text-dark);
-      }
-
-      nav, header, section {
-        background: var(--card-dark);
-        color: var(--text-dark);
-        box-shadow: 0 6px 15px var(--shadow-dark);
-      }
-
-      nav .nav-links a,
-      .back-link {
-        color: #9ecbff;
-      }
-
-      nav .nav-links a:hover,
-      .back-link:hover {
-        color: #ffffff;
-      }
-
-      nav .nav-contact-btn {
-        background-color: var(--primary);
-        color: white;
-      }
-
-      nav .nav-contact-btn:hover {
-        background-color: #3a78cc;
-      }
+      --background: #f5f7fa;
+      --text: #333;
+      --card: #fff;
+      --shadow: rgba(0, 0, 0, 0.05);
     }
 
     * {
@@ -57,22 +21,21 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--background-light);
-      color: var(--text-light);
+      background: var(--background);
+      color: var(--text);
       line-height: 1.6;
       padding: 20px;
       max-width: 900px;
       margin: auto;
-      transition: all 0.3s ease;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--card-light);
+      background: var(--card);
       padding: 15px 20px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      box-shadow: 0 2px 8px var(--shadow);
       border-radius: 8px;
       margin-bottom: 30px;
       position: sticky;
@@ -80,21 +43,19 @@
       z-index: 10;
     }
 
-    nav .nav-links a {
+    .nav-links a {
       margin-right: 20px;
       font-weight: 600;
       color: var(--primary);
       text-decoration: none;
       font-size: 1rem;
-      transition: color 0.3s ease;
     }
 
-    nav .nav-links a:hover {
+    .nav-links a:hover {
       text-decoration: underline;
-      color: #3567c2;
     }
 
-    nav .nav-contact-btn {
+    .nav-contact-btn {
       background-color: var(--primary);
       color: white;
       padding: 8px 14px;
@@ -102,41 +63,24 @@
       font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
-      transition: background-color 0.3s ease;
     }
 
-    nav .nav-contact-btn:hover {
+    .nav-contact-btn:hover {
       background-color: #3a78cc;
     }
 
-    .language-switch {
-      margin-top: 10px;
-      text-align: right;
-    }
-
-    .language-switch button {
-      background: none;
-      border: none;
-      color: var(--primary);
-      font-weight: bold;
-      margin-left: 10px;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    header {
-      margin-bottom: 40px;
-      background: var(--card-light);
-      padding: 20px 25px;
+    header, section {
+      background: var(--card);
+      padding: 25px;
       border-radius: 8px;
-      box-shadow: 0 6px 15px var(--shadow-light);
-      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px var(--shadow);
+      margin-bottom: 40px;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: var(--primary);
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .project-image {
@@ -146,20 +90,11 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    section {
-      background: var(--card-light);
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 6px 15px var(--shadow-light);
-      margin-bottom: 40px;
-      transition: all 0.3s ease;
-    }
-
     section h2 {
       color: var(--primary);
+      font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 15px;
-      font-size: 1.8rem;
     }
 
     p, ul {
@@ -203,12 +138,10 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
-      transition: color 0.3s ease;
     }
 
     a.back-link:hover {
       text-decoration: underline;
-      color: #3567c2;
     }
 
     @media (max-width: 600px) {
@@ -217,7 +150,7 @@
         gap: 10px;
       }
 
-      nav .nav-links {
+      .nav-links {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -225,17 +158,8 @@
       }
     }
   </style>
-  <script>
-    function switchLanguage(lang) {
-      const es = document.querySelectorAll('[lang="es"]');
-      const en = document.querySelectorAll('[lang="en"]');
-
-      es.forEach(el => el.style.display = lang === 'es' ? '' : 'none');
-      en.forEach(el => el.style.display = lang === 'en' ? '' : 'none');
-    }
-  </script>
 </head>
-<body onload="switchLanguage('es')">
+<body>
 
   <nav>
     <div class="nav-links">
@@ -248,52 +172,34 @@
     <a href="mailto:rafaelrodriguezmengual@gmail.com" class="nav-contact-btn">Contáctame</a>
   </nav>
 
-  <div class="language-switch">
-    <button onclick="switchLanguage('es')">Español</button>
-    <button onclick="switchLanguage('en')">English</button>
-  </div>
-
   <header id="descripcion">
-    <h1 lang="es">Gestor de Inventario – Proyecto en Equipo en Qualica RD</h1>
-    <h1 lang="en">Inventory Manager – Team Project at Qualica RD</h1>
-    <p lang="es">Durante mis prácticas profesionales en Qualica RD, participé en un proyecto colaborativo con SantanaDV y ManuelGonzalez709 para desarrollar una aplicación multiplataforma de gestión de inventario y tareas en almacenes. Backend con Spring Boot y frontend con React.</p>
-    <p lang="en">During my internship at Qualica RD, I participated in a team project with SantanaDV and ManuelGonzalez709 to develop a cross-platform inventory and task management application. Backend in Spring Boot, frontend in React.</p>
+    <h1>Gestor de Inventario – Proyecto en Equipo en Qualica RD</h1>
+    <p>Durante mis prácticas profesionales en Qualica RD, participé en un proyecto colaborativo con SantanaDV y ManuelGonzalez709 para desarrollar una aplicación multiplataforma de gestión de inventario y tareas en almacenes. Backend con Spring Boot y frontend con React.</p>
     <img src="https://i.imgur.com/KKEFbFg.jpg" alt="Imagen del proyecto" class="project-image" />
   </header>
 
   <section id="objetivos">
-    <h2>Objetivos / Goals</h2>
-    <ul lang="es">
+    <h2>Objetivos</h2>
+    <ul>
       <li>Diseñar una aplicación ágil y accesible desde dispositivos móviles y escritorio.</li>
       <li>Facilitar colaboración mediante control del stock y gestión de tareas en tiempo real.</li>
       <li>Aplicar metodologías ágiles y buenas prácticas de equipo usando Git.</li>
     </ul>
-    <ul lang="en">
-      <li>Design an agile application accessible from both mobile and desktop devices.</li>
-      <li>Facilitate collaboration through real-time stock control and task management.</li>
-      <li>Apply agile methodologies and team best practices using Git.</li>
-    </ul>
   </section>
 
   <section id="tecnologias">
-    <h2>Tecnologías / Technologies</h2>
-    <ul lang="es">
-      <li><strong>Backend:</strong> Spring Boot (Java).</li>
-      <li><strong>Frontend:</strong> React (JavaScript).</li>
-      <li><strong>Control de versiones:</strong> Git y GitHub.</li>
-      <li><strong>Otros:</strong> CSS para diseño y adaptación.</li>
-    </ul>
-    <ul lang="en">
-      <li><strong>Backend:</strong> Spring Boot (Java).</li>
-      <li><strong>Frontend:</strong> React (JavaScript).</li>
-      <li><strong>Version control:</strong> Git and GitHub.</li>
-      <li><strong>Other:</strong> CSS for responsive design.</li>
+    <h2>Tecnologías</h2>
+    <ul>
+      <li><strong>Backend:</strong> Spring Boot (Java)</li>
+      <li><strong>Frontend:</strong> React (JavaScript)</li>
+      <li><strong>Control de versiones:</strong> Git y GitHub</li>
+      <li><strong>Otros:</strong> CSS para diseño y adaptación</li>
     </ul>
   </section>
 
   <section id="funcionalidades">
-    <h2>Funcionalidades / Features</h2>
-    <ul lang="es">
+    <h2>Funcionalidades</h2>
+    <ul>
       <li><strong>Gestión de inventario y tareas:</strong>
         <ul>
           <li>Alta, edición y baja de productos.</li>
@@ -307,28 +213,12 @@
         </ul>
       </li>
     </ul>
-    <ul lang="en">
-      <li><strong>Inventory and task management:</strong>
-        <ul>
-          <li>Create, update, and delete products.</li>
-          <li>Real-time stock monitoring.</li>
-          <li>Task assignment and tracking.</li>
-        </ul>
-      </li>
-      <li><strong>User and role system:</strong>
-        <ul>
-          <li>Secure authentication and admin panel.</li>
-        </ul>
-      </li>
-    </ul>
   </section>
 
   <section id="resultados">
-    <h2>Resultados / Outcomes</h2>
-    <p lang="es">Este proyecto reforzó mis habilidades Full Stack y trabajo en equipo profesional. Aporté soluciones backend y frontend gracias a mi formación previa en DAM.</p>
-    <p lang="en">This project strengthened my Full Stack skills and teamwork in a professional environment. I contributed both backend and frontend solutions thanks to my DAM training.</p>
-    <p lang="es"><em>Nota: Proyecto desarrollado en prácticas DAW con SantanaDV y ManuelGonzalez709 usando Spring Boot y React.</em></p>
-    <p lang="en"><em>Note: Project developed during DAW internship with SantanaDV and ManuelGonzalez709 using Spring Boot and React.</em></p>
+    <h2>Resultados</h2>
+    <p>Este proyecto reforzó mis habilidades Full Stack y trabajo en equipo profesional. Aporté soluciones backend y frontend gracias a mi formación previa en DAM.</p>
+    <p><em>Nota: Proyecto desarrollado en prácticas DAW con SantanaDV y ManuelGonzalez709 usando Spring Boot y React.</em></p>
   </section>
 
   <a href="../../index.html" class="back-link">← Volver al Portafolio</a>
