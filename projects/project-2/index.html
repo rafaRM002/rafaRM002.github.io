@@ -43,7 +43,7 @@
       gap: 20px;
     }
 
-    nav .nav-links a {
+    nav .nav-links a{
       font-weight: 600;
       color: #4a90e2;
       text-decoration: none;
@@ -95,7 +95,7 @@
       flex-shrink: 0;
     }
 
-    header div {
+     header div {
       flex-grow: 1;
     }
 
@@ -103,8 +103,8 @@
       font-size: 2.5rem;
       color: #222;
     }
-
-    header h2 {
+    
+   header h2 {
       font-size: 1.2rem;
       color: #4a90e2;
       font-weight: 600;
@@ -120,20 +120,13 @@
       box-shadow: 0 6px 15px rgba(0,0,0,0.05);
     }
 
-    section h3 {
+    section h3, section h2 {
       margin-bottom: 15px;
       border-bottom: 2px solid #4a90e2;
       padding-bottom: 5px;
       color: #4a90e2;
       font-weight: 700;
       font-size: 1.5rem;
-    }
-
-    section h4 {
-      margin-bottom: 10px;
-      color: #222;
-      font-weight: 700;
-      font-size: 1.2rem;
     }
 
     p, ul {
@@ -162,23 +155,28 @@
       width: 1.2em;
     }
 
-    a {
-      color: #4a90e2;
-      text-decoration: none;
-      font-weight: 600;
+    ul ul li::before {
+      content: "◦";
+      color: #7ab4f8;
     }
 
-    a:hover {
-      text-decoration: underline;
-      color: #3567c2;
+    em {
+      color: #666;
+      font-size: 0.9rem;
     }
 
-    .back-link {
+    a.back-link {
       display: inline-block;
       margin-top: 40px;
       color: #4a90e2;
       font-weight: bold;
       font-size: 1rem;
+      text-decoration: none;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+      color: #3567c2;
     }
 
     @media (max-width: 600px) {
@@ -220,10 +218,9 @@
 </nav>
 
 <header id="descripcion">
-    <img src="https://i.imgur.com/eHncurp.png" alt="Gestion Almacen" />
+  <img src="https://i.imgur.com/eHncurp.png" alt="Imagen del proyecto" />
   <div>
-    <h1>Gestor de Inventario</h1>
-    <h2>Proyecto en Equipo en Qualica RD</h2>
+    <h1>Gestor de Inventario – Proyecto en Equipo en Qualica RD</h1>
     <p>Durante mis prácticas profesionales en Qualica RD, participé en un proyecto colaborativo con SantanaDV y ManuelGonzalez709 para desarrollar una aplicación multiplataforma de gestión de inventario y tareas en almacenes. Backend con Spring Boot y frontend con React.</p>
   </div>
 </header>
