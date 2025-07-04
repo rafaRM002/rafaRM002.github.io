@@ -48,6 +48,7 @@
       color: #4a90e2;
       text-decoration: none;
       font-size: 1rem;
+      white-space: nowrap;
     }
 
     nav .nav-links a:hover {
@@ -63,6 +64,7 @@
       font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
+      white-space: nowrap;
     }
 
     nav .nav-contact-btn:hover {
@@ -86,6 +88,7 @@
       border-radius: 8px;
       padding: 20px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
     }
 
     header img {
@@ -97,11 +100,13 @@
 
      header div {
       flex-grow: 1;
+      min-width: 0; /* Para evitar overflow en texto largo */
     }
 
     header h1 {
       font-size: 2.5rem;
       color: #222;
+      word-wrap: break-word;
     }
     
    header h2 {
@@ -133,6 +138,7 @@
       margin-bottom: 15px;
       font-size: 1rem;
       color: #444;
+      word-wrap: break-word;
     }
 
     ul {
@@ -172,11 +178,20 @@
       font-weight: bold;
       font-size: 1rem;
       text-decoration: none;
+      word-wrap: break-word;
     }
 
     a.back-link:hover {
       text-decoration: underline;
       color: #3567c2;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      body {
+        max-width: 100%;
+        padding: 15px;
+      }
     }
 
     @media (max-width: 600px) {
@@ -187,17 +202,70 @@
 
       header img {
         margin-bottom: 15px;
+        width: 100px;
+        height: 100px;
       }
 
       nav {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        width: 100%;
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
       }
 
       .nav-actions {
         justify-content: center;
         flex-wrap: wrap;
         width: 100%;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      section h2 {
+        font-size: 1.3rem;
+      }
+
+      section, nav, header {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      nav .nav-links {
+        gap: 10px;
+      }
+
+      nav .nav-links a {
+        font-size: 0.85rem;
+      }
+
+      nav .nav-contact-btn {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+      }
+
+      header img {
+        width: 80px;
+        height: 80px;
+      }
+
+      header h1 {
+        font-size: 1.4rem;
+      }
+
+      section h2 {
+        font-size: 1.1rem;
       }
     }
   </style>
