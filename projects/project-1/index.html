@@ -19,7 +19,6 @@
       padding: 20px;
       max-width: 900px;
       margin: auto;
-      transition: background 0.3s, color 0.3s;
     }
 
     nav {
@@ -74,19 +73,6 @@
       display: flex;
       align-items: center;
       gap: 15px;
-    }
-
-    #theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.3rem;
-      cursor: pointer;
-    }
-
-    .lang-switcher img {
-      cursor: pointer;
-      width: 24px;
-      height: 16px;
     }
 
     header {
@@ -216,34 +202,6 @@
         width: 100%;
       }
     }
-
-    body.dark {
-      background: #1e1e1e;
-      color: #f1f1f1;
-    }
-
-    body.dark section,
-    body.dark header,
-    body.dark nav {
-      background: #2a2a2a;
-      box-shadow: none;
-    }
-
-    body.dark a {
-      color: #81c4ff;
-    }
-
-    body.dark nav .nav-contact-btn {
-      background-color: #3a78cc;
-    }
-
-    body.dark nav .nav-contact-btn:hover {
-      background-color: #619dff;
-    }
-
-    body.dark ul li::before {
-      color: #81c4ff;
-    }
   </style>
 </head>
 <body>
@@ -257,11 +215,6 @@
   </div>
   <div class="nav-actions">
     <a href="mailto:rafaelrodriguezmengual@gmail.com" class="nav-contact-btn">Contáctame</a>
-    <button id="theme-toggle" aria-label="Cambiar tema">🌙</button>
-    <div class="lang-switcher">
-      <img src="https://flagcdn.com/es.svg" alt="Español" onclick="setLanguage('es')">
-      <img src="https://flagcdn.com/gb.svg" alt="English" onclick="setLanguage('en')">
-    </div>
   </div>
 </nav>
 
@@ -315,61 +268,48 @@
   <p>La seguridad es uno de los aspectos más importantes tanto para los administradores como para los usuarios de aplicaciones web, especialmente cuando se manejan datos sensibles como información personal, disponibilidad y contenido multimedia privado.</p>
   <p>En BandCoord, se han implementado diversas medidas para garantizar un entorno seguro, confiable y protegido:</p>
 
-  <h4>Autenticación</h4>
-  <p>El acceso a la aplicación se realiza mediante un sistema de autenticación que requiere una identidad única (correo electrónico o nombre de usuario) y una contraseña que solo conoce el usuario.</p>
-  <p>Se ha utilizado Laravel Sanctum, un sistema de autenticación API basado en tokens, que proporciona una solución sencilla y segura para aplicaciones SPA (Single Page Application) como BandCoord.</p>
-  <p>Además, las contraseñas son hasheadas (cifradas) utilizando el sistema de encriptación incorporado en Laravel, garantizando que nunca se almacenan en texto plano.</p>
-
-  <h4>Control de versiones</h4>
-  <p>Para el control y gestión del código fuente se utiliza Git, un sistema de control de versiones distribuido. Gracias a Git, todo el historial de cambios del proyecto queda registrado en un repositorio, lo que proporciona:</p>
+  <h4>Autenticación y control de acceso</h4>
   <ul>
-    <li>Copias de seguridad automáticas en cada commit.</li>
-    <li>Posibilidad de revertir cambios en caso de errores.</li>
-    <li>Mejora del trabajo colaborativo y seguimiento del progreso.</li>
-    <li>Mayor seguridad ante pérdidas de información o problemas técnicos.</li>
+    <li>Autenticación segura basada en credenciales (usuario y contraseña) almacenadas de forma cifrada.</li>
+    <li>Gestión de sesiones protegidas para evitar accesos no autorizados.</li>
+    <li>Control granular de permisos para definir roles de usuario y administrar privilegios.</li>
+  </ul>
+
+  <h4>Protección de datos</h4>
+  <ul>
+    <li>Cifrado de contraseñas utilizando algoritmos robustos como bcrypt o Argon2.</li>
+    <li>Validación y sanitización de entradas para prevenir ataques de inyección (SQL, XSS).</li>
+    <li>Uso de HTTPS para asegurar la comunicación entre cliente y servidor.</li>
+  </ul>
+
+  <h4>Seguridad en la comunicación</h4>
+  <ul>
+    <li>Implementación de CSRF tokens para proteger formularios de ataques de falsificación de solicitudes.</li>
+    <li>Limitación de intentos de inicio de sesión para prevenir ataques de fuerza bruta.</li>
+  </ul>
+
+  <h4>Backup y recuperación</h4>
+  <ul>
+    <li>Procedimientos de copia de seguridad periódica para garantizar la integridad y disponibilidad de los datos.</li>
+    <li>Mecanismos de recuperación ante fallos o pérdida de información.</li>
   </ul>
 </section>
 
 <section id="consecucion">
-  <h3>Consecuación de los Objetivos</h3>
-  <p>El objetivo principal del proyecto BandCoord era proporcionar una herramienta integral para la gestión y coordinación de bandas de música, especialmente aquellas que participan en Semana Santa. Este objetivo se ha cumplido con éxito, permitiendo una gestión eficiente de ensayos, actuaciones, miembros y comunicación interna.</p>
-
-  <h4>Resumen de objetivos cumplidos</h4>
+  <h3>Consecuación de Objetivos</h3>
+  <p>La aplicación BandCoord cumple con todos los objetivos y requisitos planteados para facilitar la gestión integral de bandas de música, proporcionando una plataforma completa y fácil de usar.</p>
   <ul>
-    <li><strong>Gestión de miembros de la banda:</strong> Se pueden registrar, editar y visualizar miembros con datos como instrumento y disponibilidad.</li>
-    <li><strong>Calendario de ensayos y actuaciones:</strong> La aplicación permite ver un calendario con fechas, horas y detalles de los eventos.</li>
-    <li><strong>Sistema de comunicación interna (email):</strong> Se pueden enviar mensajes a miembros o grupos específicos directamente desde la plataforma.</li>
-    <li><strong>Gestión de repertorio:</strong> Partituras, grabaciones y documentos multimedia se almacenan y pueden ser consultados fácilmente.</li>
-    <li><strong>Autenticación segura:</strong> Los usuarios acceden mediante login protegido con Laravel Sanctum y contraseñas cifradas.</li>
-    <li><strong>Control de versiones:</strong> Todo el código fuente está bajo Git, asegurando un desarrollo controlado y seguro.</li>
+    <li>La gestión de miembros permite administrar información detallada y actualizada.</li>
+    <li>El calendario interactivo facilita la programación y visualización de eventos importantes.</li>
+    <li>La comunicación interna es fluida gracias al sistema de envío de correos a grupos específicos.</li>
+    <li>La sección de partituras y material multimedia ofrece un acceso organizado al repertorio.</li>
+    <li>Los ensayos pueden ser planificados tanto de forma general como segmentada por secciones, mejorando la organización.</li>
+    <li>Las actuaciones se muestran con todos los detalles necesarios para su correcta gestión y seguimiento.</li>
   </ul>
-
-  <p>En definitiva, BandCoord ha cumplido con sus objetivos iniciales y se presenta como una solución tecnológica adaptada a las necesidades específicas de las bandas de música de Semana Santa, facilitando la organización y comunicación dentro del grupo.</p>
+  <p>Este proyecto contribuye a mejorar la coordinación, eficiencia y comunicación dentro de las bandas de música, potenciando su funcionamiento y éxito.</p>
 </section>
 
-<a href="../../index.html" class="back-link">← Volver al Portafolio</a>
-
-<script>
-  const toggleBtn = document.getElementById('theme-toggle');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const savedTheme = localStorage.getItem('theme');
-
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    document.body.classList.add('dark');
-    toggleBtn.textContent = '☀️';
-  }
-
-  toggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    toggleBtn.textContent = isDark ? '☀️' : '🌙';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
-
-  function setLanguage(lang) {
-    alert('El cambio de idioma aún no está implementado. Idioma seleccionado: ' + lang);
-  }
-</script>
+<a href="https://rafaelrodriguezmengual.com" class="back-link">Volver a mi página principal</a>
 
 </body>
 </html>
