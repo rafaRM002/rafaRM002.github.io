@@ -5,14 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gestor de Inventario – Qualica RD</title>
   <style>
-    :root {
-      --primary: #4a90e2;
-      --background: #f5f7fa;
-      --text: #333;
-      --card: #fff;
-      --shadow: rgba(0, 0, 0, 0.05);
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -21,8 +13,8 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--background);
-      color: var(--text);
+      background: #f5f7fa;
+      color: #333;
       line-height: 1.6;
       padding: 20px;
       max-width: 900px;
@@ -33,30 +25,38 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--card);
+      background: white;
       padding: 15px 20px;
-      box-shadow: 0 2px 8px var(--shadow);
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
       border-radius: 8px;
       margin-bottom: 30px;
       position: sticky;
       top: 0;
       z-index: 10;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .nav-links a {
-      margin-right: 20px;
+    nav .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav .nav-links a {
       font-weight: 600;
-      color: var(--primary);
+      color: #4a90e2;
       text-decoration: none;
       font-size: 1rem;
     }
 
-    .nav-links a:hover {
+    nav .nav-links a:hover {
       text-decoration: underline;
+      color: #3567c2;
     }
 
-    .nav-contact-btn {
-      background-color: var(--primary);
+    nav .nav-contact-btn {
+      background-color: #4a90e2;
       color: white;
       padding: 8px 14px;
       border-radius: 6px;
@@ -65,41 +65,76 @@
       font-size: 0.95rem;
     }
 
-    .nav-contact-btn:hover {
+    nav .nav-contact-btn:hover {
       background-color: #3a78cc;
     }
 
-    header, section {
-      background: var(--card);
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 6px 15px var(--shadow);
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
       margin-bottom: 40px;
+      border-bottom: 3px solid #4a90e2;
+      padding-bottom: 20px;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+    }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+
+    header div {
+      flex-grow: 1;
+      min-width: 200px;
     }
 
     header h1 {
-      font-size: 2.2rem;
-      color: var(--primary);
+      font-size: 2.5rem;
+      color: #222;
       margin-bottom: 15px;
     }
 
-    .project-image {
-      width: 100%;
+    header p {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: white;
+      padding: 25px;
       border-radius: 8px;
-      margin-top: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
     }
 
-    section h2 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      font-weight: 700;
+    section h3, section h2 {
       margin-bottom: 15px;
+      border-bottom: 2px solid #4a90e2;
+      padding-bottom: 5px;
+      color: #4a90e2;
+      font-weight: 700;
+      font-size: 1.5rem;
     }
 
     p, ul {
-      font-size: 1rem;
       margin-bottom: 15px;
+      font-size: 1rem;
+      color: #444;
     }
 
     ul {
@@ -111,11 +146,12 @@
       padding-left: 1.2em;
       text-indent: -1.2em;
       margin-bottom: 8px;
+      color: #555;
     }
 
     ul li::before {
       content: "•";
-      color: var(--primary);
+      color: #4a90e2;
       font-weight: bold;
       display: inline-block;
       width: 1.2em;
@@ -134,96 +170,107 @@
     a.back-link {
       display: inline-block;
       margin-top: 40px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
+      color: #4a90e2;
+      font-weight: bold;
       font-size: 1rem;
+      text-decoration: none;
     }
 
     a.back-link:hover {
       text-decoration: underline;
+      color: #3567c2;
     }
 
     @media (max-width: 600px) {
-      nav {
+      header {
         flex-direction: column;
-        gap: 10px;
+        text-align: center;
       }
 
-      .nav-links {
-        display: flex;
-        flex-wrap: wrap;
+      header img {
+        margin-bottom: 15px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-actions {
         justify-content: center;
-        gap: 15px;
+        flex-wrap: wrap;
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-links">
-      <a href="#descripcion">Descripción</a>
-      <a href="#objetivos">Objetivos</a>
-      <a href="#tecnologias">Tecnologías</a>
-      <a href="#funcionalidades">Funcionalidades</a>
-      <a href="#resultados">Resultados</a>
-    </div>
+<nav>
+  <div class="nav-links">
+    <a href="#descripcion">Descripción</a>
+    <a href="#objetivos">Objetivos</a>
+    <a href="#tecnologias">Tecnologías</a>
+    <a href="#funcionalidades">Funcionalidades</a>
+    <a href="#resultados">Resultados</a>
+  </div>
+  <div class="nav-actions">
     <a href="mailto:rafaelrodriguezmengual@gmail.com" class="nav-contact-btn">Contáctame</a>
-  </nav>
+  </div>
+</nav>
 
-  <header id="descripcion" style="display: flex; align-items: center; gap: 20px; background: var(--card); padding: 25px; border-radius: 8px; box-shadow: 0 6px 15px var(--shadow); margin-bottom: 40px;">
-  <img src="https://i.imgur.com/eHncurp.png" alt="Imagen del proyecto" style="width: 100px; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+<header id="descripcion">
+  <img src="https://i.imgur.com/eHncurp.png" alt="Imagen del proyecto" />
   <div>
-    <h1 style="font-size: 2.2rem; color: var(--primary); margin-bottom: 15px;">Gestor de Inventario – Proyecto en Equipo en Qualica RD</h1>
+    <h1>Gestor de Inventario – Proyecto en Equipo en Qualica RD</h1>
     <p>Durante mis prácticas profesionales en Qualica RD, participé en un proyecto colaborativo con SantanaDV y ManuelGonzalez709 para desarrollar una aplicación multiplataforma de gestión de inventario y tareas en almacenes. Backend con Spring Boot y frontend con React.</p>
   </div>
 </header>
-  
-  <section id="objetivos">
-    <h2>Objetivos</h2>
-    <ul>
-      <li>Diseñar una aplicación ágil y accesible desde dispositivos móviles y escritorio.</li>
-      <li>Facilitar colaboración mediante control del stock y gestión de tareas en tiempo real.</li>
-      <li>Aplicar metodologías ágiles y buenas prácticas de equipo usando Git.</li>
-    </ul>
-  </section>
 
-  <section id="tecnologias">
-    <h2>Tecnologías</h2>
-    <ul>
-      <li><strong>Backend:</strong> Spring Boot (Java)</li>
-      <li><strong>Frontend:</strong> React (JavaScript)</li>
-      <li><strong>Control de versiones:</strong> Git y GitHub</li>
-      <li><strong>Otros:</strong> CSS para diseño y adaptación</li>
-    </ul>
-  </section>
+<section id="objetivos">
+  <h2>Objetivos</h2>
+  <ul>
+    <li>Diseñar una aplicación ágil y accesible desde dispositivos móviles y escritorio.</li>
+    <li>Facilitar colaboración mediante control del stock y gestión de tareas en tiempo real.</li>
+    <li>Aplicar metodologías ágiles y buenas prácticas de equipo usando Git.</li>
+  </ul>
+</section>
 
-  <section id="funcionalidades">
-    <h2>Funcionalidades</h2>
-    <ul>
-      <li><strong>Gestión de inventario y tareas:</strong>
-        <ul>
-          <li>Alta, edición y baja de productos.</li>
-          <li>Control de stock en tiempo real.</li>
-          <li>Asignación y seguimiento de tareas.</li>
-        </ul>
-      </li>
-      <li><strong>Sistema de usuarios y roles:</strong>
-        <ul>
-          <li>Autenticación segura y panel de administración.</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
+<section id="tecnologias">
+  <h2>Tecnologías</h2>
+  <ul>
+    <li><strong>Backend:</strong> Spring Boot (Java)</li>
+    <li><strong>Frontend:</strong> React (JavaScript)</li>
+    <li><strong>Control de versiones:</strong> Git y GitHub</li>
+    <li><strong>Otros:</strong> CSS para diseño y adaptación</li>
+  </ul>
+</section>
 
-  <section id="resultados">
-    <h2>Resultados</h2>
-    <p>Este proyecto reforzó mis habilidades Full Stack y trabajo en equipo profesional. Aporté soluciones backend y frontend gracias a mi formación previa en DAM.</p>
-    <p><em>Nota: Proyecto desarrollado en prácticas DAW con SantanaDV y ManuelGonzalez709 usando Spring Boot y React.</em></p>
-  </section>
+<section id="funcionalidades">
+  <h2>Funcionalidades</h2>
+  <ul>
+    <li><strong>Gestión de inventario y tareas:</strong>
+      <ul>
+        <li>Alta, edición y baja de productos.</li>
+        <li>Control de stock en tiempo real.</li>
+        <li>Asignación y seguimiento de tareas.</li>
+      </ul>
+    </li>
+    <li><strong>Sistema de usuarios y roles:</strong>
+      <ul>
+        <li>Autenticación segura y panel de administración.</li>
+      </ul>
+    </li>
+  </ul>
+</section>
 
-  <a href="https://rafarm002.github.io/" class="back-link">Volver a la página principal</a>
+<section id="resultados">
+  <h2>Resultados</h2>
+  <p>Este proyecto reforzó mis habilidades Full Stack y trabajo en equipo profesional. Aporté soluciones backend y frontend gracias a mi formación previa en DAM.</p>
+  <p><em>Nota: Proyecto desarrollado en prácticas DAW con SantanaDV y ManuelGonzalez709 usando Spring Boot y React.</em></p>
+</section>
+
+<a href="https://rafarm002.github.io/" class="back-link">Volver a la página principal</a>
 
 </body>
 </html>
